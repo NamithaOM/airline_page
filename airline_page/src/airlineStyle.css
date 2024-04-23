@@ -1,0 +1,109 @@
+.header {
+  background-color: rgb(215, 239, 240);
+  margin-bottom: 10px;
+}
+
+.airline_body {
+  margin-top: 1000px;
+  margin: 100px;
+  display: flex;
+}
+
+.footer {
+  margin-bottom: 50px;
+  background-color: rgb(215, 239, 240);
+}
+
+.images {
+
+  height: 300px;
+  width: 150px;
+}
+
+.regForm {
+  width: 500px;
+  margin-top: 50px;
+  margin-left: 500px;
+}
+
+.loginform {
+  width: 500px;
+  margin-top: 50px;
+  margin-left: 500px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.aboutus {
+  margin: 10px 100px 100px 100px;
+}
+
+.row {
+  padding: 30px;
+  margin: 50px;
+  border: solid rgb(169, 168, 168);
+}
+
+.carouselExampleInterval {
+  margin-top: 10px;
+  height: 50px;
+}
+
+body {
+  /* margin: top 10px; */
+  background-image: url("../public/images/sky2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.companyfm {
+  width: 500px;
+  height: 800px;
+  margin-left: 500px;
+}
+
+.adminhome {
+  display: flex;
+}
+
+.admnsidebr {
+  width: 100px;
+  color: black;
+  background-color: rgb(215, 239, 240);
+  height: 700px;
+}
+
+.companyview {
+  display: flex;
+}
+
+.companybody {
+  display: flex;
+}
+
+.flex-shrink-0 {
+  color: black;
+  background-color:rgb(215, 239, 240);
+  height: 500px;
+  font-size: large;
+}
+
+.companyprofile {
+  display: flex;
+}
+
+.card {
+  margin-top: 100px;
+  margin-left: 500px;
+  font-size: large;
+  height: 220px;
+  width: 250px;
+}
+.table{
+  margin-left: 100px;
+  width: 1000px;
+  margin-top: 10px;
+
+}
