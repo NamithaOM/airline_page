@@ -12,7 +12,7 @@ function Register() {
 
     const regform = (e) => {
         e.preventDefault();
-        navigate('/home');
+        navigate('/');
         let params = {
             name: name,
             dob: dob,

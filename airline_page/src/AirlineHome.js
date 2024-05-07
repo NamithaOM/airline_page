@@ -1,6 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
+import { useNavigate} from "react-router-dom";
+
 import './airlineStyle.css'
 function AirlineHome() {
+  const[source,setSource]=useState('')
+  const[destiny,setDestiny]=useState('')
+  const navigate = useNavigate();
+
+  const flightSearch = (e) => {
+      e.preventDefault();
+      navigate('/serchflights')
+      let params = {
+        source: source,
+        destiny: destiny
+      };
+
+      fetch('http://localhost:5001/flightsview', {
+          method: 'post',
+          headers: {
+              Accept: 'application/json',
+              'Content-type': 'application/json'
+          },
+          body: JSON.stringify(params)
+      })
+      .then((res) => res.json()).then((result)=>{
+        console.log(result);
+      })
+    }
+
     return (
         <>
         <div>
@@ -30,7 +57,7 @@ function AirlineHome() {
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                                 {/* <a href="/signup" className="btn btn-warning" style={{ marginRight: '10px' }}>SignUp</a> */}
-                                <a href="/" className="btn btn-primary" style={{ marginRight: '10px' }}>Login</a>
+                                <a href="/" className="btn btn-primary" style={{ marginRight: '10px' }}>Logout</a>
                                 {/* <a href="/logout" className="btn btn-warning">Logout</a> */}
 
                             </form>
@@ -62,7 +89,17 @@ function AirlineHome() {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+<div class="row mb-3" style={{border:"solid gray"}}>
+<form method="post" onSubmit={flightSearch}>
+                  Source <input type="text" name="source" className="form-control"  
+                        onChange={(e) => setSource(e.target.value)}
+                    />
+                    Destination <input type="text" name="destiny" className="form-control" 
+                        onChange={(e) => setDestiny(e.target.value)}
+                    />
+                    <button type="submit">Search</button>
+                </form>
+</div>
 
           <div class="row mb-3" style={{border:"solid gray"}}>
       <div class="col-4 themed-grid-col"><img src="./images/airline1.jpg" alt=""></img>

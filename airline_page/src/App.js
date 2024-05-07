@@ -26,6 +26,14 @@ import UpdateClass from './UpdateClass'
 import ViewFare from './ViewFare'
 import AddFare from './AddFare';
 import UpdateFare from './UpdateFare'
+import AddPackage from './AddPackage';
+import ViewPackage from './ViewPackage';
+import UpdatePackage from './UpdatePackage';
+import Schedule from './Schedule'
+import ViewSchedule from './ViewSchedule'
+import UpdateSchedule from './UpdateSchedule'
+import SearchFlights from './SearchFlights'
+import AddPassenger from './AddPassenger'
 
 function App() {
  
@@ -37,6 +45,8 @@ function App() {
         <>
         <Routes>
           <Route path='/' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+
         </Routes>
         </>
       ) : authenticated.user_status == 0 ? (
@@ -60,6 +70,9 @@ function App() {
           <Route path='/userHeader' element={<UserHeader/>}></Route>
           <Route path='/features' element={<Features />}></Route>
           <Route path='/footer' element={<Footer/>}></Route>
+          <Route path='/serchflights' element={<SearchFlights/>}></Route>
+          <Route path='/addpassenger' element={<AddPassenger/>}></Route>
+
 
         </Routes>
         </>
@@ -87,6 +100,12 @@ function App() {
           <Route path='/viewfare' element={<ViewFare/>}></Route>
           <Route path='/addfare' element={<AddFare/>}></Route>
           <Route path='/updatefare' element={<UpdateFare/>}></Route>
+          <Route path='/addpackage' element={<AddPackage/>}></Route>
+          <Route path='/viewpackage' element={<ViewPackage/>}></Route>
+          <Route path='/updatepackage' element={<UpdatePackage/>}></Route>
+          <Route path='/addschedule' element={<Schedule/>}></Route>
+          <Route path='/viewschedule' element={<ViewSchedule/>}></Route>
+          <Route path='/updateschedule' element={<UpdateSchedule/>}></Route>
 
         </Routes>
         </>

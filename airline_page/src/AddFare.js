@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CommonHeader from './CommonHeader';
 import Footer from './Footer';
 import CompanySidebar from './CompanySidebar'
@@ -9,27 +10,29 @@ function AddFare(){
     const [flightId,setFlightId]=useState('')
     const[classId,setClassId]=useState('')
     const [authenticated, setAuthenticated] = useState(JSON.parse(localStorage.getItem('userdata')))
+    const navigate = useNavigate();
 
     const addfare=(e)=>{
         let companyId = authenticated._id
 
         e.preventDefault()
-        // let params={
-        //     fares:fares, 
-        //     flight:flightId,
-        //     // flightClass:flightClass,
-        //     companyID: companyId
+        navigate('/viewfare');
 
-        // }
-        // fetch('http://localhost:5001/Addfare', {
-        //     method:'post',
-        //     headers:{
-        //         Accept:'application/json',
-        //         'Content-type':'application/json'
-        //     },body:JSON.stringify(params)
-        // }).then((res)=>res.json()).then((result)=>{
-        //     console.log(result);
-        // })
+        let params={
+            fares:fares, 
+            flight:flightId,
+            flightClass:classId,
+            companyID: companyId
+        }
+        fetch('http://localhost:5001/addfare', {
+            method:'post',
+            headers:{
+                Accept:'application/json',
+                'Content-type':'application/json'
+            },body:JSON.stringify(params)
+        }).then((res)=>res.json()).then((result)=>{
+            console.log(result);
+        })
     }
 
    
@@ -67,7 +70,8 @@ function AddFare(){
             <CompanySidebar />
 
             <form method="post" onSubmit={addfare}>
-            Flight<select name='flights' value={flightId} onChange={(e) => setFlightId(e.target.value)}>
+            Flight<select name='flights' value={flightId}className="form-control"
+             onChange={(e) => setFlightId(e.target.value)}>
                     <option>Select</option>
                     {flight.map((datas) => (
                         <option  value={datas._id}>
@@ -76,7 +80,8 @@ function AddFare(){
                     ))}
                 </select>
                 
-               Class <select name='classes' value={classId} onChange={(e) => setClassId(e.target.value)}>
+               Class <select name='classes'className="form-control" value={classId}
+                onChange={(e) => setClassId(e.target.value)}>
                     <option>Select</option>
                     {flightClass.map((dt) => (
                         <option  value={dt._id}>

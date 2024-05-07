@@ -25,8 +25,18 @@ function CompanySidebar() {
                     </Link>
                 </li>
                 <li className="mb-1">
-                    <Link to="/viewfair" className="btn btn-toggle align-items-center rounded collapsed">
+                    <Link to="/viewfare" className="btn btn-toggle align-items-center rounded collapsed">
                         Fare
+                    </Link>
+                </li>
+                <li className="mb-1">
+                    <Link to="/viewpackage" className="btn btn-toggle align-items-center rounded collapsed">
+                        Package
+                    </Link>
+                </li>
+                <li className="mb-1">
+                    <Link to="/viewschedule" className="btn btn-toggle align-items-center rounded collapsed">
+                        Schedule
                     </Link>
                 </li>
             </ul>
